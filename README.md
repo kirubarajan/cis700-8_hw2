@@ -1,7 +1,6 @@
 # homework 2
 
 ## Setup 
-0. (Optional) Run `virtualenv -p python3 venv` followed by `source venv/bin/activate` to enter virtual environment.
 1. Install dependencies with `pip install -r requirements.txt`.
 2. Download spaCy model with `python -m spacy download en`.
 3. Download pre-trained GloVe word embeddings with:
