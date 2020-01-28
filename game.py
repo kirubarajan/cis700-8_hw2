@@ -16,6 +16,8 @@
 # In[1]:
 
 import pyjokes
+import neuralcoref
+import spacy
 
 class Game:
   """The Game class represents the world.  Internally, we use a 
@@ -46,6 +48,7 @@ class Game:
 
   def describe_current_location(self):
     """Describe the current location by printing its description field."""
+    # MARKER
     print(self.curr_location.description)
 
   def describe_exits(self):
@@ -638,7 +641,7 @@ def build_game():
     (create_item_location, (broken_hub, "Do you have enough time to get your attendance grade AND finish the assignment?", towne327))
   ]), preconditions={"in_location": basement, "location_has_item": router})
 
-  fire_alarm.add_action("pull alarm", end_game, ("You pull the fire alarm and the police arrive, diverting units from a serious situation. You die from grief. Game over."))
+  fire_alarm.add_action("pull the fire alarm", end_game, ("You pull the fire alarm and the police arrive, diverting units from a serious situation. You die from grief. Game over."))
 
   return Game(hallway)
 
@@ -648,6 +651,9 @@ def build_game():
 # In[ ]:
 
 def game_loop():
+  nlp = spacy.load("en")
+  neuralcoref.add_to_pipe(nlp)
+  
   game = build_game()
   parser = Parser(game)
   game.describe()
@@ -657,13 +663,17 @@ def game_loop():
   command = ""
   while not (command.lower() == "exit" or command.lower == "q"):
     command = input(">")
-    end_game = parser.parse_command(command)
-    if end_game:
-      return
+    
+    corpus = nlp(command)
+    for sentence in corpus._.coref_resolved.split("."):
+      print(sentence)
+      end_game = parser.parse_command(sentence.strip())
+
+      if end_game:
+        return
 
 game_loop()
 print('THE GAME HAS ENDED.')
-
 
 # # Visualize your game
 # The code below allows you to create a directed graph that shows the locations in your game and how they are connected.  You can also save a PDF of your graph to your Google Drive with the `save_to_drive` method.  The output file will be called `game-visualization.pdf`.
