@@ -19,6 +19,6 @@ def find_most_similar_command(user_command, known_commands, vectors):
     similarity[command] = vectors.similarity(command_vector, construct_sentence_vector(command, vectors))
 
   ranked_commands = sorted(list(similarity.items()), key=lambda x: x[1], reverse=True)
-  return ranked_commands[0]
+  return ranked_commands[0][0]
 
 construct_sentence_vector("get fish", vectors).shape
