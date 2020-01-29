@@ -628,13 +628,13 @@ def build_game():
   unplugged_router = Item("unplugged Router", "an unplugged internet router", "the router looks lifeless", start_at=None, gettable=False)
   hub = Item("wifi hub", "a wifi hub", "the wifi hub is relaying signal in the room", start_at=towne327, gettable=False)
   fire_alarm = Item("fire alarm", "a red fire alarm switch", "the switch looks easy to pull", start_at=towne100, gettable=False)
-  ccb = Item("chris", "Chris", "a professor is standing here, wearing a floral shirt", start_at=towne327, gettable=False)
-  daphne = Item("daphne", "Daphne", "a PhD instructor is standing here, checking course material and reveling in her fast internet connection", start_at=towne327, gettable=False)
+  ccb = Item("chris", "chris", "a professor is standing here, wearing a floral shirt", start_at=towne327, gettable=False)
+  daphne = Item("daphne", "daphne", "a PhD instructor is standing here, checking course material and reveling in her fast internet connection", start_at=towne327, gettable=False)
 
   ccb.add_action("talk to chris", describe_something, ("He says: " + pyjokes.get_joke()))
   daphne.add_action("talk to daphne", describe_something, ("She says: " + pyjokes.get_joke()))
 
-  router.add_action("unplug router", perform_multiple_actions, ([
+  router.add_action("unplug the router", perform_multiple_actions, ([
     (destroy_item, (router, "You unplug the router from the wall.")),
     (create_item, (unplugged_router, "The router is unplugged. Your phone starts bugging you about connecting to the internet.")),
     (destroy_item_location, (hub, "You wonder what's happening in your classroom.", towne327)),
@@ -666,7 +666,7 @@ def game_loop():
     
     corpus = nlp(command)
     for sentence in corpus._.coref_resolved.split("."):
-      print(sentence)
+      # print("parsed", sentence)
       end_game = parser.parse_command(sentence.strip())
 
       if end_game:
