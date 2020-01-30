@@ -663,9 +663,13 @@ def game_loop():
   command = ""
   while not (command.lower() == "exit" or command.lower == "q"):
     command = input(">")
-    
+  
     corpus = nlp(command)
-    for sentence in corpus._.coref_resolved.split("."):
+    resolved = corpus._.coref_resolved
+
+    sentences = resolved.split("and" if "and" in resolved else ".")
+
+    for sentence in sentences:
       # print("parsed", sentence)
       end_game = parser.parse_command(sentence.strip())
 
