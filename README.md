@@ -73,4 +73,4 @@ He says: Software salesmen and used-car salesmen differ in that the latter know 
 ```
 
 ### Future Steps
-Some future steps would be to improve coreference resolution by including the current outputted text (notions of state) as context in order to resolve the use's command. 
+Some future steps would be to improve coreference resolution by including the current outputted text (notion of state) as context in order to resolve the use's command. 
