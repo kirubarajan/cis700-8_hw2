@@ -1,0 +1,75 @@
+{
+    "hypernyms": {
+        "crown": [],
+        "eat": [
+            "consume.v.02"
+        ],
+        "fish": [
+            "aquatic_vertebrate.n.01"
+        ],
+        "give": [],
+        "lamp": [
+            "source_of_illumination.n.01"
+        ],
+        "light": [
+            "burn.v.05"
+        ],
+        "rose": [],
+        "smell": [
+            "perceive.v.01"
+        ],
+        "troll": [
+            "mythical_monster.n.01",
+            "monster.n.01",
+            "mythical_being.n.01"
+        ],
+        "wear": [
+            "dress.v.01",
+            "change.v.02"
+        ]
+    },
+    "hyponyms": {
+        "crown": [],
+        "eat": [
+            "devour.v.03",
+            "devour.v.04",
+            "eat_up.v.01"
+        ],
+        "fish": [
+            "bony_fish.n.01"
+        ],
+        "give": [
+            "award.v.02",
+            "deliver.v.09"
+        ],
+        "lamp": [
+            "aladdin's_lamp.n.01",
+            "candle.n.01"
+        ],
+        "light": [
+            "flare_up.v.01"
+        ],
+        "rose": [
+            "banksia_rose.n.01"
+        ],
+        "smell": [
+            "get_a_noseful.v.01",
+            "scent.v.02",
+            "sniff.v.01"
+        ],
+        "troll": [],
+        "wear": []
+    },
+    "senses": {
+        "crown": "crown.n.01",
+        "eat": "eat.v.01",
+        "fish": "fish.n.01",
+        "give": "give.v.01",
+        "lamp": "lamp.n.01",
+        "light": "ignite.v.01",
+        "rose": "rose.n.01",
+        "smell": "smell.v.01",
+        "troll": "troll.n.01",
+        "wear": "wear.v.09"
+    }
+}
