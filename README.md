@@ -4,6 +4,11 @@ For HW2 we implemented corererence resolution in addition to WordNet and word ve
 
 <img src="https://raw.githubusercontent.com/kirubarajan/cis700-8_hw2/master/fish.png" />
 
+
+## A note on Coref
+
+We found that the version of spaCy included with Colab doesn't play well with the `neuralcoref` library. That's why you see us uninstall and install the correct version. Sorry for the extra time this causes, but it is needed for now according to some stack overflow and github issues posts.
+
 ## Fuzzy Matching System
 
 First, we preprocess the user's text using spaCy's coreference module. We replace prenouns in the text with representative mentions. Call this the `Resolved Text`. 
